@@ -1,0 +1,10 @@
+<Project Sdk="WixToolset.Sdk/5.0.2">
+  <PropertyGroup>
+    <OutputType>Package</OutputType>
+    <OutputName>Eario-$(ProductVersion)-win-x64</OutputName>
+    <ProductVersion Condition="'$(ProductVersion)' == ''">1.0.4</ProductVersion>
+    <EarioPayload Condition="'$(EarioPayload)' == ''">$(MSBuildProjectDirectory)\..\artifacts\app</EarioPayload>
+    <DefineConstants>EarioPayload=$(EarioPayload);ProductVersion=$(ProductVersion);RepoRoot=$(MSBuildProjectDirectory)\..</DefineConstants>
+    <SuppressIces>ICE91</SuppressIces>
+  </PropertyGroup>
+</Project>

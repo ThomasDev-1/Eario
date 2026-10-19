@@ -1,0 +1,22 @@
+# Build output
+bin/
+obj/
+dist/
+artifacts/
+
+# IDE and user-specific state
+.idea/
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Local diagnostics and logs
+*.log
+*.pdb
+
+# OS metadata
+Thumbs.db
+Desktop.ini
+.DS_Store

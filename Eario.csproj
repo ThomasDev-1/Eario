@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
+    <AssemblyName>Eario</AssemblyName>
+    <RootNamespace>Eario</RootNamespace>
+    <ApplicationIcon>assets\Eario.ico</ApplicationIcon>
+    <Version>1.0.4</Version>
+    <Authors>ThomasDev-01</Authors>
+    <Company>BTT Studios</Company>
+    <Description>A lightweight Windows tray utility for routing apps between audio outputs.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="assets\Eario.png" CopyToOutputDirectory="Never" />
+  </ItemGroup>
+</Project>

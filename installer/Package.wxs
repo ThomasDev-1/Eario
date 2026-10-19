@@ -1,0 +1,45 @@
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Package
+    Name="Eario"
+    Manufacturer="BTT Studios"
+    Version="$(var.ProductVersion)"
+    UpgradeCode="D184FF07-229A-4DA8-A46D-C553595EAB0A"
+    Language="1033"
+    Scope="perUser">
+
+    <SummaryInformation Description="Eario audio routing utility" Manufacturer="BTT Studios" />
+    <MajorUpgrade DowngradeErrorMessage="A newer version of Eario is already installed." />
+    <MediaTemplate EmbedCab="yes" />
+    <Icon Id="EarioIcon" SourceFile="$(var.RepoRoot)\assets\Eario.ico" />
+    <Property Id="ARPPRODUCTICON" Value="EarioIcon" />
+
+    <StandardDirectory Id="LocalAppDataFolder">
+      <Directory Id="INSTALLFOLDER" Name="Eario">
+        <Component Id="EarioApplication" Guid="BAE859DD-5CF5-49E0-9BD9-24C7E8D9D472">
+          <File Id="EarioExe" Source="$(var.EarioPayload)\Eario.exe">
+            <Shortcut
+              Id="EarioStartMenuShortcut"
+              Directory="ProgramMenuFolder"
+              Name="Eario"
+              Description="Route apps between Windows audio outputs"
+              WorkingDirectory="INSTALLFOLDER"
+              Icon="EarioIcon"
+              Advertise="no" />
+          </File>
+          <RegistryValue
+            Root="HKCU"
+            Key="Software\Microsoft\Windows\CurrentVersion\Run"
+            Name="Eario"
+            Type="string"
+            Value="&quot;[#EarioExe]&quot;"
+            KeyPath="yes" />
+          <RemoveFolder Id="RemoveInstallFolder" Directory="INSTALLFOLDER" On="uninstall" />
+        </Component>
+      </Directory>
+    </StandardDirectory>
+
+    <Feature Id="MainFeature" Title="Eario" Level="1">
+      <ComponentRef Id="EarioApplication" />
+    </Feature>
+  </Package>
+</Wix>
